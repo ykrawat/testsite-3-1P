@@ -1,0 +1,2 @@
+# mystaticsite
+Basic site
