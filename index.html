@@ -34,30 +34,30 @@
 
 <script type="text/javascript">
 document.getElementById('addToWishlistButton').addEventListener('click', function() {
-  fbq('track', 'AddToWishlist');
+  cbq('track', 'AddToWishlist');
 }, false);
 
 document.getElementById('addToCartButton').addEventListener('click', function() {
-  fbq('track', 'AddToCart');
+  cbq('track', 'AddToCart');
 }, false);
 
 document.getElementById('checkoutButton').addEventListener('click', function() {
-  fbq('track', 'InitiateCheckout');
+  cbq('track', 'InitiateCheckout');
 }, false);
 
 document.getElementById('purchaseButton').addEventListener('click', function() {
-  fbq('track', 'Purchase', {
+  cbq('track', 'Purchase', {
     value: 100,
     currency: 'USD',
   });
 }, false);
 
 document.getElementById('subcribeButton').addEventListener('click', function() {
-  fbq('track', 'Subscribe');
+  cbq('track', 'Subscribe');
 }, false);
 
 document.getElementById('registrationButton').addEventListener('click', function() {
-  fbq('track', 'CompleteRegistration');
+  cbq('track', 'CompleteRegistration');
 }, false);
 </script>
 </body>
