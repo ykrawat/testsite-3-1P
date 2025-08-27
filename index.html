@@ -1,17 +1,27 @@
 <head>    
-<!-- Signals Gateway Pixel Code -->
+<!-- Signals Gateway Pixel + Meta Pixel Code -->
     <script>
-    !function(a,h,e,v,n,t,s){
-      if(a.cbq)return;
-      n=a.cbq=function(){n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments);};
-      if(!a._cbq)a._cbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
-      t=h.createElement(e);t.async=!0; t.src=v;s=h.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
-    }(window, document,'script', 'https://d25367bddeeuhz.cloudfront.net/sdk/20402400153144/events.js');
-    cbq('setHost', 'https://d25367bddeeuhz.cloudfront.net/');
-    cbq('init', '20402400153144');
+      !(function(f,b,e,v,vv,n,nn,t,s,tt,ss){
+        if (!f.cbq){nn = f.cbq = function(){nn.initialized ? nn.apply(f.cbq, arguments) : nn.queue.push(arguments);};
+        if(!f._cbq) f._cbq = nn;
+        nn.push = nn; nn.loaded = !0; nn.version = '2.0'; nn.queue = [];
+        tt = b.createElement(e); tt.async = !0; tt.src = vv; ss=b.getElementsByTagName(e)[0]; ss.parentNode.insertBefore(tt,ss);}
+        if (f.xbq) return; if (f.fbq) f.xbq=f.fbq;
+        n = f.fbq = function()
+        {if(arguments[0].startsWith('track')){n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);f.cbq.initialized ? f.cbq.apply(f.cbq, arguments) : f.cbq.queue.push(arguments);}
+        else{n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);}};
+        if(!f._fbq) f._fbq = n;
+        n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = (f.xbq)?f.xbq.queue:[];
+        t = b.createElement(e); t.async = !0; t.src = v;s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
+      })
+      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', 'https://d15bg4grh7uygg.cloudfront.net/sdk/5298873559760625928/events.js');
+      fbq('init', '36902539701756');fbq('track', 'PageView');
+      cbq('setHost', 'https://j3hiyjadzg.us-east-1.awsapprunner.com/');
+    cbq('init', '5298873559760625928');
+      cbq('set', 'integrationMethod', 'forkFromSnippetCode');
+      cbq('track', 'PageView');
     </script>
-  <!-- End Signals Gateway Pixel Code -->
+  <!-- End Signals Gateway Pixel + Meta Pixel Code -->
  
   
 <meta name="facebook-domain-verification" content="qowwrhpyni79cf2pms3zixyrxoh3b4" />
