@@ -1,6 +1,7 @@
 <head>    
 <!-- Signals Gateway Pixel + Meta Pixel Code -->
     <script>
+      function assign(t){for(var i=1;i<arguments.length;i++){var s=arguments[i];if(s)for(var k in s)if(Object.prototype.hasOwnProperty.call(s,k))t[k]=s[k]}return t;}
       !(function(f,b,e,v,vv,n,nn,t,s,tt,ss){
         if (!f.cbq){nn = f.cbq = function(){nn.initialized ? nn.apply(f.cbq, arguments) : nn.queue.push(arguments);};
         if(!f._cbq) f._cbq = nn;
@@ -8,25 +9,29 @@
         tt = b.createElement(e); tt.async = !0; tt.src = vv; ss=b.getElementsByTagName(e)[0]; ss.parentNode.insertBefore(tt,ss);}
         if (f.xbq) return; if (f.fbq) f.xbq=f.fbq;
         n = f.fbq = function()
-       {if((arguments[0]==='track'||arguments[0]==='trackCustom')&&arguments.length<3)arguments=[...arguments,{},{eventID:arguments[1]+"."+Date.now().toString()+Math.random().toString(36)}];
-          else if((arguments[0]==='track'||arguments[0]==='trackCustom')&&arguments.length<4)arguments=[...arguments,{eventID:arguments[1]+"."+Date.now().toString()+Math.random().toString(36)}];
-          else if((arguments[0]==='trackSingle'||arguments[0]==='trackSingleCustom')&&arguments.length<4)arguments=[...arguments,{},{eventID:arguments[2]+"."+Date.now().toString()+Math.random().toString(36)}];
-          else if((arguments[0]==='trackSingle'||arguments[0]==='trackSingleCustom')&&arguments.length<5)arguments=[...arguments,{eventID:arguments[2]+"."+Date.now().toString()+Math.random().toString(36)}];
-        if(arguments[0]==='track'){if(!arguments[3] || !arguments[3].eventID) arguments[3]={...arguments[3],eventID:arguments[1]+"."+Date.now().toString()+"."+Math.random().toString(36)}};
-        if(arguments[0].startsWith('trackSingle')){if(!arguments[4]||!arguments[4].eventID) arguments[4]={...arguments[4],eventID:arguments[2]+"."+Date.now().toString()+"."+Math.random().toString(36)}};
-        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-        if (arguments[0].startsWith('track')) {
-          if(arguments[0].startsWith('trackSingle')) arguments[1]='8017825121791202072';
-          f.cbq.initialized ? f.cbq.apply(f.cbq, arguments) : f.cbq.queue.push(arguments);}
+        { var args = Array.prototype.slice.call(arguments);
+          var m = args[0]; var isT = m === 'track' || m === 'trackCustom'; var isS = m === 'trackSingle' || m === 'trackSingleCustom';
+          var mId = args[isT?1:2] + "." + Date.now() + Math.random().toString(36);
+          if (isT && args.length < 4)
+            arguments = args.concat((args.length < 3 ? [{}, { eventID: mId }] : [{ eventID: mId }]));
+          else if (isS && arguments.length < 5)
+            arguments = args.concat((args.length < 4 ? [{}, { eventID: mId }] : [{ eventID: mId }]));
+          if (isT && (!arguments[3] || !arguments[3].eventID)) arguments[3] = assign({}, arguments[3] || {}, { eventID: mId });
+          if (isS && (!arguments[4] || !arguments[4].eventID)) arguments[4] = assign({}, arguments[4] || {}, { eventID: mId });
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+          if (typeof m === 'string' && m.indexOf('track') === 0) {
+            if (isS) arguments[1] = f.fbq.instance.pixelsByID[arguments[1]].cId;
+            if (arguments[1]) (f.cbq.initialized ? f.cbq.apply(f.cbq, arguments) : f.cbq.queue.push(arguments));}
         }
-       if(!f._fbq) f._fbq = n;
+        if(!f._fbq) f._fbq = n;
         n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = (f.xbq)?f.xbq.queue:[];
         t = b.createElement(e); t.async = !0; t.src = v;s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);
       })
-      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', 'https://d72wvips1bo2a.cloudfront.net/sdk/8017825121791202072/events.js');
-      fbq('init', '32802564850096');fbq('track', 'PageView');
-      cbq('setHost', 'https://jdvd2bnvpv.us-east-1.awsapprunner.com/');
-    cbq('init', '8017825121791202072');
+      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js', 'https://web.lcs-manual-1024-upgrade.abinaya.cbinternal.com/sdk/3675776786633866445/events.js');
+      fbq('init', '19502435003566');fbq('track', 'PageView');
+      cbq('setHost', 'https://lcs-manual-1024-upgrade.abinaya.cbinternal.com/');
+    cbq('init', '3675776786633866445');
+      fbq('set', 'cId', '3675776786633866445', '19502435003566');
       cbq('set', 'integrationMethod', 'forkFromSnippetCode');
     </script>
   <!-- End Signals Gateway Pixel + Meta Pixel Code -->
